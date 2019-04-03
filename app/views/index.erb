@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% Article.all.each do |article| %>
+    <h1><%=  @article.name %></h1>
+    <br>
+    <h3><%=  @article.content %></h3>
+    <br>
+
+  </body>
+</html>
