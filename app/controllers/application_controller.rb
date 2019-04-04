@@ -37,10 +37,14 @@ class ApplicationController < Sinatra::Base
   end
 
   patch "/articles/:id" do
-
+    binding.pry
+    params.delete("_method")
+    @article = Article.find(params[:id])
+    @article.update(params)
+    @article.save
   end
 
   delete '/articles/:id' do
-    
+
   end
 end
