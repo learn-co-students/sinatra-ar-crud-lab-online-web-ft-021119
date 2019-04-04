@@ -5,9 +5,13 @@
     <title></title>
   </head>
   <body>
+
+    <h2>hello from form</h2>
     <form action="/articles" method="post">
-      Title: <input type="string" name="title" value="title">
-      Content: <input type="string" name="content" value="content">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="title">
+      <label for="content">Content:</label>
+      <input type="text" id="content" name="content" value="content">
       <input type="submit" value="submit">
     </form>
 
