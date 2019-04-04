@@ -18,27 +18,27 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/articles' do
-    binding.pry
+    #binding.pry
     @articles = Article.all
     erb :index
   end
 
   get '/articles/:id' do
     @id = params[:id]
-    @article = Article.find_by_id(@id)
+    @article = Article.find(@id)
     erb :show
   end
 
   get '/articles/:id/edit' do
     #binding.pry
     @id = params[:id]
-    @article = Article.find_by_id(@id)
+    @article = Article.find(@id)
     erb :edit
   end
 
   patch '/articles/:id' do
     @id = params[:id]
-    @article = Article.find_by_id(@id)
+    @article = Article.find(@id)
 
     #set article title equal to whatever was passed into edit forrm in title field
     @article.title = params[:title]
@@ -56,6 +56,6 @@ class ApplicationController < Sinatra::Base
 
   delete '/articles/:id' do
     @id = params[:id]
-    Article.find_by_id(@id).destroy
+    Article.find(@id).destroy
   end
 end
