@@ -6,10 +6,11 @@
   </head>
   <body>
     <% Article.all.each do |article| %>
-    <h1><%=  @article.name %></h1>
+    <h1><%=  @article.title %></h1>
     <br>
     <h3><%=  @article.content %></h3>
     <br>
+    <% end %>
 
   </body>
 </html>
