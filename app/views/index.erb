@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>All Articles</h1>
+    <div class="articles">
+      <% @articles.each do |element| %>
+        <h1><%= element[:title] %></h1><br>
+        <p><%= element[:content] %></p><br>
+      <% end %>
+    </div><br>
+
+    <form method="POST" action="/articles/new">
+    <input type="submit" value="Create New Article">
+    </form>
+  </body>
+</html>
