@@ -2,6 +2,7 @@
 
 <p><%=@article.content%></p>
 
-<form action="/index" method="post">
-  <button type="submit" value="submit">Return to Index</button>
+<form method="POST" action="/articles/<%= @article.id %>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
 </form>
