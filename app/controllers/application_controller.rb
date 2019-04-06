@@ -42,4 +42,10 @@ class ApplicationController < Sinatra::Base
     #NEED to update and save revised Article object
   end
 
+##DELETE CRUD Actions
+  delete '/articles/:id' do
+
+  end
+
+
 end
