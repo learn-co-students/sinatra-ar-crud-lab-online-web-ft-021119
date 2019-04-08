@@ -8,22 +8,26 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    # erb :index
   end
+
 #INDEX CRUD Action
   get '/articles' do
     @articles = Article.all
     erb :index
   end
+
 ##CREATE CRUD Actions
   get '/articles/new' do
     erb :new
   end
 
   post '/articles' do
-    @articles = Article.create(title: params[:title], content: params[:content])
-    binding.pry
-    redirect to "/articles/#{@article.id}"
+    # binding.pry
+    @article = Article.new(title: params[:title], content: params[:content])
+binding.pry
+    erb "/@articles/#{@article.id}"
+
   end
 
 ##READ CRUD Actions
