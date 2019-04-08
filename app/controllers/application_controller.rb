@@ -1,5 +1,3 @@
-
-
 require_relative '../../config/environment'
 
 class ApplicationController < Sinatra::Base
@@ -12,20 +10,20 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
-
+#INDEX CRUD Action
   get '/articles' do
     @articles = Article.all
     erb :index
   end
 ##CREATE CRUD Actions
   get '/articles/new' do
-    @article = Article.new
     erb :new
   end
 
   post '/articles' do
-    @article = Article.create(title: params[:title], content: params[:content])
-    erb :index
+    @articles = Article.create(title: params[:title], content: params[:content])
+    binding.pry
+    redirect to "/articles/#{@article.id}"
   end
 
 ##READ CRUD Actions
@@ -36,13 +34,17 @@ class ApplicationController < Sinatra::Base
 
 ##UPDATE CRUD Actions
   get '/articles/:id/edit' do
-      erb :edit
+    @article = Article.find_by(params[:id])
+    erb :edit
   end
 
 
   patch '/articles/:id' do
     @article = Article.find_by(params[:id])
-    @article.update(params[:article])
+    @article.title = params[:title]
+    @article.content = params[:content]
+    @article.save
+    # @article.update(params[:article])
     redirect to "/articles/#{@article.id}"
   end
 
